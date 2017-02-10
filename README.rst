@@ -39,7 +39,10 @@ Demos, Tutorials and Mailing lists:
 
 1. YouTube Channel: https://www.youtube.com/channel/UChRZ5O2diT7QREazfQX0stQ
 2. Excellent Faucet related tutorial articles on https://inside-openflow.com/
-3. Mailing lists: faucet-dev@openflowsdn.org and faucet-users@lists.geannt.org
+3. Mailing lists: 
+   Announce:   faucet-announce@list.waikato.ac.nz
+   Developers: faucet-dev@list.waikato.ac.nz
+   Users:      faucet-users@lists.geannt.org
 
 Contact:
 -------
