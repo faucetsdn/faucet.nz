@@ -209,18 +209,18 @@
             <h2 class="title text-center">Get Started</h2>
             <div class="block">
                 <h3 class="sub-title text-center">Installation</h3>
-                <p>Installation is very simple.  As user <code>root</code>, you install via Python <code>pip</code>.
+                <p>Installation is very simple, you install via Python <code>pip</code>.
                 Then edit the <code>faucet.yaml</code> file to configure the switches that you would want to control.
-              After this, Faucet controller can be started using the <code>ryu-manager faucet.py</code>command.</p>
+                After this, Faucet controller can be started using <code>ryu-manager</code></p>
 
                 <div class="code-block">
                     <!--//Use Prismjs - http://prismjs.com/index.html#basic-usage -->
                     <pre class="command-line" data-user="root" data-host="localhost">
                       <!-- for some reason language-bash is not working and hence using python -->
                       <code class="language-python">
-                        # pip install ryu-faucet
-                        # vi /etc/ryu/faucet/faucet.yaml
-                        # ryu-manager &lt;path_to_dir&gt;/faucet.py
+                        $ sudo pip install faucet
+                        $ sudo vi /etc/ryu/faucet/faucet.yaml
+                        $ ryu-manager faucet.faucet
                       </code>
                     </pre>
                 </div><!--//code-block-->
