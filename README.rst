@@ -30,7 +30,7 @@ Presentations:
 Installation:
 ------------
 
-1. Python pip: https://pypi.python.org/pypi/ryu-faucet
+1. Python pip: https://pypi.python.org/pypi/faucet
 2. VM, ISO Images: https://susestudio.com/a/ENQFFD/ryu-faucet
 3. Docker Containers: https://hub.docker.com/r/faucet/
 
