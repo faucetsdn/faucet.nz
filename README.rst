@@ -13,7 +13,7 @@ Faucet is a Open source SDN Controller for Opeflow v1.3.x based switches support
 Code:
 ----
 
-1. GitHub Repo: https://github.com/REANNZ/faucet/
+1. GitHub Repo: https://github.com/faucetsdn/faucet/
 
 Publications:
 ------------
@@ -23,8 +23,8 @@ Publications:
 Presentations:
 -------------
 
-1. Quick overview presentation: https://github.com/REANNZ/faucet/blob/master/src/docs/Faucet.pdf
-2. Faucet design philosophy: https://github.com/REANNZ/faucet/blob/master/src/docs/faucet_design_OVSConf2016.pdf
+1. Quick overview presentation: https://github.com/faucetsdn/faucet/blob/master/src/docs/Faucet.pdf
+2. Faucet design philosophy: https://github.com/faucetsdn/faucet/blob/master/src/docs/faucet_design_OVSConf2016.pdf
 3. Podcast by Ben Pfaff, OVSOrbit.org: The Faucet SDN Controller, with Josh Bailey and Shivaram Mysore (Nov 13) - https://ovsorbit.org/episode-19.mp3  
 
 Installation:
