@@ -31,7 +31,7 @@ Installation:
 ------------
 
 1. Python pip: https://pypi.python.org/pypi/faucet
-2. VM, ISO Images: https://susestudio.com/a/ENQFFD/ryu-faucet
+2. VM Images: https://builder.faucet.nz/
 3. Docker Containers: https://hub.docker.com/r/faucet/
 
 Demos, Tutorials and Mailing lists:
