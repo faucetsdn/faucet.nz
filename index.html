@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="assets/plugins/prism/prism-command-line.css" data-noprefix>
     <!-- Theme CSS -->
     <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+    <link id="theme-style" rel="stylesheet" href="assets/css/faucet.css">
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
@@ -63,9 +64,8 @@
                     <ul class="nav navbar-nav">
                         <li class="active nav-item sr-only"><a class="scrollto" href="#promo">Home</a></li>
                         <li class="nav-item"><a class="scrollto" href="#about">About</a></li>
-                        <li class="nav-item"><a class="scrollto" href="#docs">Get Started &amp; Docs</a></li>
-                        <li class="nav-item last"><a class="scrollto" href="#deployment">Deployment</a></li>
-                        <li class="nav-item last"><a class="scrollto" href="#events">Events</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#deployment">Deployments</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#events">Events</a></li>
                         <li class="nav-item last"><a class="scrollto" href="#contact">Support</a></li>
                     </ul><!--//nav-->
                 </div><!--//navabr-collapse-->
@@ -79,13 +79,12 @@
             <h2 class="title"><span class="highlight">Faucet</span></h2>
             <p class="intro">Open source SDN Controller for production networks</p>
             <div class="btns">
-                <a class="btn btn-cta-secondary" href="https://github.com/faucetsdn/faucet/releases/latest">Download Source</a>
-                <a class="btn btn-cta-primary" href="https://builder.faucet.nz/">Download VM</a>
-                <a class="btn btn-cta-secondary"><code>pip install faucet</code></a>
+                <a class="btn btn-cta-primary" href="https://docs.faucet.nz/en/latest/tutorials/first_time.html">Install Faucet</a>
             </div>
             <ul class="meta list-inline">
                 <li><a href="http://docs.faucet.nz">Documentation</a></li>
                 <li><a href="https://github.com/faucetsdn/faucet">GitHub</a></li>
+                <li><a href="https://faucet-sdn.blogspot.com/">Blog</a></li>
             </ul><!--//meta-->
         </div><!--//container-->
         <div class="social-media">
@@ -120,15 +119,17 @@
     <section id="about" class="about section">
         <div class="container">
             <h2 class="title text-center">What is Faucet?</h2>
-            <p class="intro text-center">Faucet is an OpenFlow controller for multi-table OpenFlow 1.3 switches (including optional table features), that implements layer 2 switching, VLANs, ACLs, and layer 3 IPv4 and IPv6 routing, static and via BGP. The Openflow switch is deployed as a drop in replacement for a L2/L3 switch in the network to enable extra SDN based functionality.</p>
+            <p class="intro text-center">Faucet is a compact open source OpenFlow controller, which enables network operators to run their networks the same way they do server clusters. Faucet moves network control functions (like routing protocols, neighbor discovery, and switching algorithms) to vendor independent server-based software, versus traditional router or switch embedded firmware, where those functions are easy to manage, test, and extend with modern systems management best practices and tools. Faucet controls OpenFlow 1.3 hardware which delivers high forwarding performance.<br><br>
+            You can read more about our approach to networking by reading our <a href="https://queue.acm.org/detail.cfm?id=3015763">ACM Queue article Faucet: Deploying SDN in the Enterprise</a>.</p>
             <div class="row">
                 <div class="item col-md-4 col-sm-6 col-xs-12">
                     <div class="icon-holder">
                         <i class="fa fa-clock-o"></i>
                     </div>
                     <div class="content">
-                        <h3 class="sub-title">Easy Installation, Upgrades</h3>
-                        <p><b>30seconds to a few minutes</b> depending on the mode of installation: python pip install, OVF/ISO deploy or Docker.  Once installed, edit the configuration file and start the controller to manage your switches.<br /><b>Faster upgrades</b> than non SDN (can upgrade controller in &lt;1sec while network still runs and without rebooting the hardware) → Important with increasing number of zero day attacks</p>
+                        <h3 class="sub-title">Easy Installation & Upgrades</h3>
+                        <p><b>Install in less than 30 seconds</b> with pip3, apt-get or docker. Once installed, simply edit the configuration file and start the controller to manage your switches.<br><br>
+                        <b>Faster upgrades</b> than non-SDN (can upgrade controller in &lt;1sec while network still runs and without rebooting the hardware)</p>
                     </div><!--//content-->
                 </div><!--//item-->
                 <div class="item col-md-4 col-sm-6 col-xs-12">
@@ -137,7 +138,8 @@
                     </div>
                     <div class="content">
                         <h3 class="sub-title">Network Operations</h3>
-                        <p>Much <b>easier to automate and integrate configuration (YAML)</b>.  <b>Real-time time-series database integration</b> for stats → Grafana dashboards.  NoSQL database integration for flows.<br /><b>"Push On Green"</b>: Built-in unit test framework for Mininet &amp; Hardware</p>
+                        <p>Much easier to automate and integrate configuration (YAML). Time-series database integration for real time statistic dashboards with Grafana.<br><br>
+                        <b>Push On Green</b>: Built-in integration test framework for Mininet &amp; Hardware</p>
                     </div><!--//content-->
                 </div><!--//item-->
                 <div class="item col-md-4 col-sm-6 col-xs-12">
@@ -146,19 +148,20 @@
                     </div>
                     <div class="content">
                       <h3 class="sub-title">Control Plane Security</h3>
-                      <p>Switch-Controller connection on a dedicated port secured by <b>TLS or 802.1AE MACSec</b>.  Faucet initally programs the switch with <b>“default-deny”</b> flows to drop all unknown traffic.  Flows periodically timeout and are refreshed by the controller.Faucet implements expiry times on all flows. Forwarding will cease if no controller can be reached for a configurable period of time.<br />
+                      <p>Switch control channel can be on a dedicated port secured by <b>TLS</b>.<br><br>
                       Switch can be configured for <b>“fail-secure”</b> (default) - keep forwarding and using currently
                       programmed flows until they expire or <b>“fail-standalone”</b> - revert to being a non-programmable switch</p>
                     </div><!--//content-->
                 </div><!--//item-->
-                <div class="clearfix visible-md"></div>
+            </div>
+            <div class="row">
                 <div class="item col-md-4 col-sm-6 col-xs-12">
                     <div class="icon-holder">
                         <i class="fa fa-server"></i>
                     </div>
                     <div class="content">
                         <h3 class="sub-title">Hardware Support</h3>
-                        <p>Any <b>dataplane (Switch) supporting Openflow v1.3.x with multiple tables, group table and optional table features</b>.  Openflow pipeline is built on Faucet and pushed to switches.  Vendor specific pipelines (ex. Broadcom's OFDPA) are not supported.  Open vSwitch, Lagopous, HPE Aruba, Allied Telesis, Noviflow, Netronome, and Northbound Networks are some of the switch vendors supported.</p>
+                        <p>Any <b>dataplane (Switch) supporting Openflow v1.3.x with multiple tables, group table and optional table features messages</b>. Vendor specific pipelines (e.g. Broadcom OFDPA) are not supported. Open vSwitch, Lagopous, HPE Aruba, Allied Telesis, Noviflow, Netronome, and Northbound Networks are some of the <a href="https://docs.faucet.nz/en/latest/vendors/index.html">switch vendors supported</a>.</p>
                     </div><!--//content-->
                 </div><!--//item-->
                 <div class="item col-md-4 col-sm-6 col-xs-12">
@@ -167,7 +170,7 @@
                     </div>
                     <div class="content">
                         <h3 class="sub-title">SDN Configurability</h3>
-                        <p>Ability to configure learning (ex. Unicast flooding), Routing algorithms, ACLs, Policy Based Forwarding (PBF) based on OpenFlow matches, Stacking of switches (Fabric) and so on.  This configurability is the biggest difference between a traditional switch with a SDN enabled one.</p>
+                        <p>Ability to configure secure learning modes (e.g. Unicast flooding), ACLs, Policy Based Forwarding (PBF) based on OpenFlow matches, Stacking of switches (Faucet distribted switching fabric) and so on.  This configurability is the biggest difference between a traditional switch with a SDN enabled one.</p>
                     </div><!--//content-->
                 </div><!--//item-->
                 <div class="item col-md-4 col-sm-6 col-xs-12">
@@ -176,8 +179,9 @@
                     </div>
                     <div class="content">
                         <h3 class="sub-title">High Availability & Scalability</h3>
-                        <p>High Availability (HA) via Idempotency (make that same call repeatedly while producing the same result). No inter-controller configuration or communication required.  2+ Faucet instances with the same config are configured for the same switch (fabric) to enable HA.<br />
-                        Faucet minimizes PACKET_INs.  Controller scaling is decoupled from switch scaling.  Faucet controls a fabric of switches and programs intra-switch dataplane.
+                        <p>High Availability (HA) via <a href="https://en.wikipedia.org/wiki/Idempotence#Computer_science_meaning">Idempotency</a> (without need for a stateful HA cluster).
+                        Simply run redundant faucet controllers on different hardware with the same configuration filea and configure these controllers on our switches to enable HA.
+                        No state sharing or Inter-Process Communication between redundant faucet controllers is required.<br />
                         </p>
                     </div><!--//content-->
                 </div><!--//item-->
@@ -192,62 +196,24 @@
             <ul class="feature-list list-unstyled">
               <li><i class="fa fa-check"></i>VLANs</li>
               <li><i class="fa fa-check"></i>IPv4 and IPv6 support</li>
-              <li><i class="fa fa-check"></i>IPv6 neighbor solicitation and router advertisement support</li>
               <li><i class="fa fa-check"></i>Static and BGP routing</li>
               <li><i class="fa fa-check"></i>Flexible port and VLAN based Access Control Lists</li>
               <li><i class="fa fa-check"></i>Port mirroring</li>
-              <li><i class="fa fa-check"></i>Fast configuration reloads</li>
               <li><i class="fa fa-check"></i>Vendor neutral stacking of Openflow switches</li>
               <li><i class="fa fa-check"></i>Policy based forwarding to offload processing to external systems (Eg 802.1x via hostapd)</li>
-              <li><i class="fa fa-check"></i>Configurable learning: Control unicast flooding by port and by VLAN</li>
               <li><i class="fa fa-check"></i>Dataplane for NFV - Offload functions such as DHCP, NTP, Firewall, and IDS</li>
-              <li><i class="fa fa-check"></i>CouchDB support for storing flows from switches to enable north bound applications</li>
-              <li><i class="fa fa-check"></i>Influx support for time-series OpenFlow port statistics</li>
-              <li><i class="fa fa-check"></i>Prometheus integration for monitoring and instrumentation of FAUCET</li>
               <li><i class="fa fa-check"></i>Grafana based dashboards for monitoring</li>
-              <li><i class="fa fa-check"></i>Comprehensive test suite – tests for all features that can be run against mininet (software switching) and on hardware</li>
-              <li><i class="fa fa-check"></i>Code: Python based, easy readability (PEP8 style)</li>
+              <li><i class="fa fa-check"></i>Prometheus integration for monitoring and instrumentation of FAUCET</li>
+              <li><i class="fa fa-check"></i>Influxdb support for time-series OpenFlow port statistics</li>
+              <li><i class="fa fa-check"></i>Comprehensive test suite</li>
             </ul>
         </div><!--//container-->
     </section><!--//features-->
 
-    <!-- ******DOCS****** -->
-    <section id="docs" class="docs section">
-        <div class="container">
-            <div class="docs-inner">
-            <h2 class="title text-center">Get Started</h2>
-            <div class="block">
-                <h3 class="sub-title text-center">Installation</h3>
-                <div class="code-block">
-                    <!--//Use Prismjs - http://prismjs.com/index.html#basic-usage -->
-                    <pre class="command-line" data-user="root" data-host="localhost">
-                      <!-- for some reason language-bash is not working and hence using python -->
-                      <code class="language-python">
-$ sudo pip install faucet
-$ sudo vi /etc/ryu/faucet/faucet.yaml
-$ ryu-manager faucet.faucet
-                      </code>
-                    </pre>
-                </div><!--//code-block-->
-            </div><!--//block-->
-
-            <div class="block">
-                <h3 class="sub-title text-center">Documentation</h3>
-                <p class="text-center">
-                    <a class="btn btn-cta-primary" href="http://docs.faucet.nz">Documentation</a>
-                    <a class="btn btn-cta-primary" href="https://faucet-sdn.blogspot.com/">Blog</a>
-                </p>
-            </div><!--//block-->
-
-            </div><!--//docs-inner-->
-        </div><!--//container-->
-    </section><!--//features-->
-
-
   <!-- ****** Events ****** -->
-  <section id="events" class="deployment section">
+  <section id="events" class="events section">
       <div class="container">
-        <div class="license-inner">
+        <div class="events-inner">
         <h2 class="title text-center">Events</h2>
             <div class="info">
               <p>
@@ -264,8 +230,8 @@ $ ryu-manager faucet.faucet
 <!-- ****** Deployment Map ****** -->
 <section id="deployment" class="deployment section">
     <div class="container">
-      <div class="license-inner">
-      <h2 class="title text-center">Deployment</h2>
+      <div class="deployment-inner">
+      <h2 class="title text-center">Deployments</h2>
           <div class="info">
             <p>Faucet has been deployed in production around the world.
               Some of the sites include Open Networking Foundation, REANNZ, AARNet, ESNet,

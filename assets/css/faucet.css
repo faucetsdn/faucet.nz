@@ -1,0 +1,21 @@
+.meta {
+    margin-top: 50px !important;
+}
+
+.events {
+    padding: 60px 0;
+    background: #f5f5f5;
+}
+
+.events .title {
+    padding-bottom: 20px;
+}
+
+.deployment {
+    padding: 20px 0;
+    background: #f5f5f5;
+}
+
+.deployment .title {
+    padding-bottom: 20px;
+}
